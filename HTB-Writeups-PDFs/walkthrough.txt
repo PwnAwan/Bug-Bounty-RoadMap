@@ -1,0 +1,2 @@
+https://raw.githubusercontent.com/pencer-io/pencer-io.github.io/master/assets/pdfs/2022-01-30-ctf-htb-meta.pdf
+password: 5up3r 53cr37 p455w0rd 7h47 n0 0n3 w1ll 6u355
